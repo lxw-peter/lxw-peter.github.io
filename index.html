@@ -173,95 +173,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="lxw-peter-github-io"><a href="#lxw-peter-github-io" class="headerlink" title="lxw-peter.github.io"></a>lxw-peter.github.io</h1><p>注 ：这个是我的个人博客，之前一直不大明白怎么制作一个属于自己的博客，服务器配置啊什么的从头开始制作觉得太麻烦，后面看了一下别人的教程就能很快搭建自己的静态博客，下面是我的搭建过程。</p>
-<h2 id="lxw-peter的个人博客是怎么制作出来的？"><a href="#lxw-peter的个人博客是怎么制作出来的？" class="headerlink" title="lxw-peter的个人博客是怎么制作出来的？"></a>lxw-peter的个人博客是怎么制作出来的？</h2><h3 id="材料准备："><a href="#材料准备：" class="headerlink" title="材料准备："></a>材料准备：</h3><ol>
-<li>git(GitHub)</li>
-<li>node.js</li>
-<li>Hexo</li>
-</ol>
-<h3 id="准备下锅："><a href="#准备下锅：" class="headerlink" title="准备下锅："></a>准备下锅：</h3><ol>
-<li>安装好<code>git</code>后需要简单配置一下可以参考我的<a href="https://github.com/lxw-peter/learnGit/blob/master/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md" target="_blank" rel="noopener">git学习笔记</a></li>
-<li>创建一个文件夹（存放博客文件）</li>
-<li>在GitHub上新建一个仓库，仓库名分两部分，前缀是你的GitHub用户名，后缀是github.io,我的就是<code>lxw-peter.github.io</code><br><img src="https://ws1.sinaimg.cn/large/0061BkIsly1fv80cdgyqij30u60njabm.jpg" alt="创建仓库"><br>ps: 我的已经创建过了，所以上面有提示</li>
-</ol>
-<h3 id="炒菜"><a href="#炒菜" class="headerlink" title="炒菜"></a>炒菜</h3><p>  这里笔者使用的是Hexo框架用来搭建自己的博客</p>
-<blockquote>
-<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-</blockquote>
-<ol>
-<li><p>全局安装hexo-cli</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>初始化（在你之前创建的文件夹上）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入blog文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装依赖</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动本地服务器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>浏览器输入网址 <code>http://localhost:4000</code> 即可查看效果</p>
-<p><img src="https://ws1.sinaimg.cn/large/0061BkIsly1fv8303bcirj30z10gvgua.jpg" alt="默认样式"></p>
-</li>
-<li><p>新建文章</p>
-<p><img src="https://ws1.sinaimg.cn/large/0061BkIsly1fv81ekn3k9j30af0aq0t2.jpg" alt="树状图"></p>
-<p>注意： 不要在目录source/_posts下新建文件，需要通过命令新建</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://ws1.sinaimg.cn/large/0061BkIsly1fv81in2aqpj30pe0i9t96.jpg" alt="测试文件"></p>
-</li>
-<li><p>重新启动服务器</p>
-<ol>
-<li><code>Ctrl+C</code> 退出服务器</li>
-<li><code>hexo server</code>启动服务器</li>
-</ol>
-</li>
-</ol>
-<h3 id="上菜"><a href="#上菜" class="headerlink" title="上菜"></a>上菜</h3><p>通过Hexo一键部署功能将本地博客部署到GitHub 上</p>
-<ol>
-<li><p>配置文件<code>_confim.yml</code>文件</p>
-<p><img src="https://ws1.sinaimg.cn/large/0061BkIsly1fv81tvfspwj30w50rtn0g.jpg" alt="配置文件"></p>
-<p>注： 在deploy上有两个属性 <code>type</code>和<code>repo</code>，<code>type</code> 属性为 <code>git</code>；<code>repo</code>为仓库地址，这里需要注意的点是，GitHub 怎么知道你是这个GitHub账号的用户呢，所以这里需要在链接中填写你的用户名和密码,最后用@为分隔符(图上两根斜线中间的部分)。</p>
-</li>
-<li><p>安装<code>hexo-deployer-git</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成静态文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>一键部署</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>清除缓存</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>监事文件变动</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate --watch</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>完成后部署</p>
-<p>让Hexo在生成完毕后自动部署网站</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//下面两种写法作用一样</span><br><span class="line">  hexo generate --deploy</span><br><span class="line">  hexo deploy --generate</span><br><span class="line">//简写</span><br><span class="line">  hexo g -d</span><br><span class="line">  hexo d -g</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="换换口味"><a href="#换换口味" class="headerlink" title="换换口味"></a>换换口味</h3><ol>
-<li><p>在GitHub上搜索<code>hexo theme</code>就可以搜到很多hexo的主题</p>
-</li>
-<li><p>选择喜欢的主题，在themes文件夹下执行克隆命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//depth 深度， 下载作者最新提交的版本就可以了，这样更快</span><br><span class="line">  git <span class="built_in">clone</span> url --depth 1</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改<code>_config.yml</code>配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: hexo-theme-yilia</span><br></pre></td></tr></table></figure>
-<p><img src="https://ws1.sinaimg.cn/large/0061BkIsly1fv83lu8uebj30kc0atgmd.jpg" alt="配置主题"></p>
-</li>
-<li><p>重新部署</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>浏览器输入网址<code>https://lxw-peter.github.io</code>(这里换上你自己的url)查看效果<br><img src="https://ws1.sinaimg.cn/large/0061BkIsly1fv8dsr7lp9j31hc0swte5.jpg" alt="博客主页"></p>
-</li>
-</ol>
-
+        
+          <a class="article-more-a" href="/2018/09/13/利用GitHub和Hexo搭建个人博客/#more">more >></a>
+        
       
 
       
@@ -393,93 +307,9 @@
 <li><p>在终端输入<strong>git init</strong>命令把这个目录Git可以管理的仓库</p>
 </li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
-<h2 id="一-文件的增删改查"><a href="#一-文件的增删改查" class="headerlink" title="一.文件的增删改查"></a>一.文件的增删改查</h2><h3 id="1-git-add"><a href="#1-git-add" class="headerlink" title="1.git add "></a>1.git add <file></file></h3><p>此命令可以使用多次,添加多个文件到暂存区,<file>指文件名</file></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add readme.md</span><br></pre></td></tr></table></figure>
-<h3 id="2-git-commit-m"><a href="#2-git-commit-m" class="headerlink" title="2.git commit -m "></a>2.git commit -m <message></message></h3><p>此命令将文件添加到版本库,并且可以一次提交多个文件 <message>指版本备注</message></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">"这是我的第一个版本"</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-git-status"><a href="#3-git-status" class="headerlink" title="3.git status "></a>3.git status <file></file></h3><p>此命令可以让我们时刻掌握仓库当前的状态</p>
-<h3 id="4-git-diff"><a href="#4-git-diff" class="headerlink" title="4.git diff "></a>4.git diff <file></file></h3><p>此命令可以查看具体修改了什么内容</p>
-<h3 id="5-git-log"><a href="#5-git-log" class="headerlink" title="5.git log "></a>5.git log <file></file></h3><p>此命令可以查看历史记录,加上<code>--pretty=oneline</code>参数可以缩减部分信息</p>
-<h3 id="6-git-reset-–hard-commit-id"><a href="#6-git-reset-–hard-commit-id" class="headerlink" title="6.git reset –hard commit-id"></a>6.git reset –hard commit-id</h3><p>commit-id(版本号) ,回退到以前的某个版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard adebea1...//commit id 简写,写几个数字或字母系统会自动查找匹配</span><br><span class="line">$ git reset --hard HEAD^ //回退到上一个版本</span><br><span class="line">$ git reset --hard HEAD^^ //回退到上上一个版本</span><br><span class="line">$ git reset --hard HEAD~100 //回退到前第一百个版本</span><br></pre></td></tr></table></figure>
-<h3 id="7-git-reflog"><a href="#7-git-reflog" class="headerlink" title="7.git reflog"></a>7.git reflog</h3><p>查看命令历史,以便确定回退到未来的那个版本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git reflog</span><br><span class="line">e475afc HEAD@&#123;1&#125;: reset: moving to HEAD^</span><br><span class="line">1094adb (HEAD -&gt; master) HEAD@&#123;2&#125;: commit: append GPL</span><br><span class="line">e475afc HEAD@&#123;3&#125;: commit: add distributed</span><br><span class="line">eaadf4e HEAD@&#123;4&#125;: commit (initial): wrote a readme file</span><br></pre></td></tr></table></figure>
-<h3 id="8-cat"><a href="#8-cat" class="headerlink" title="8.cat "></a>8.cat <file></file></h3><p>查看文件内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cat readme.md</span><br><span class="line"><span class="comment">###我的第一个版本</span></span><br><span class="line">&lt;!-- 修改了第一个版本,增加此行 --&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="9-git-checked-–"><a href="#9-git-checked-–" class="headerlink" title="9. git checked –"></a>9. git checked –<file></file></h3><p><code>git checkout -- file</code>可以丢弃工作区的修改,注意此处file前的– 不能省略</p>
-<h3 id="10-git-rest-HEAD"><a href="#10-git-rest-HEAD" class="headerlink" title="10. git rest HEAD "></a>10. git rest HEAD <file></file></h3><p>暂存区的修改撤销掉，重新放回工作区</p>
-<h3 id="11-git-rm"><a href="#11-git-rm" class="headerlink" title="11. git rm "></a>11. git rm <file></file></h3><p>在文件夹中直接删除文件,需要删除版本库中的文件, 使用<code>git rm &lt;file&gt;</code>,然后再<code>git commit -m &quot;&lt;message&gt;&quot;</code>则彻底删除文件</p>
-<p><code>git rm -r --cached &lt;file&gt;</code>删除仓库文件</p>
-<h3 id="12-git-checked"><a href="#12-git-checked" class="headerlink" title="12. git checked "></a>12. git checked <file></file></h3><p>如果删错文件了, 则可以使用<code>git checked &lt;file&gt;</code>,用版本库中的版本替换工作区中误删的文件</p>
-<h3 id="13-gitignore-设置忽略文件及文件夹"><a href="#13-gitignore-设置忽略文件及文件夹" class="headerlink" title="13. .gitignore 设置忽略文件及文件夹"></a>13. .gitignore 设置忽略文件及文件夹</h3><ul>
-<li>在文件夹中创建文件名为<code>.gitignore</code>的文件 , <code>/</code>表示忽略当前文件夹下的文件或文件夹,写法如下:<ul>
-<li><code>/.idea</code>  忽略.idea文件</li>
-<li><code>/js</code>忽略js目录下的所有文件</li>
-<li><code>/js/*.js</code>忽略js目录下所有js文件</li>
-</ul>
-</li>
-</ul>
-<h2 id="二-远程仓库"><a href="#二-远程仓库" class="headerlink" title="二.远程仓库"></a>二.远程仓库</h2><h3 id="第1步："><a href="#第1步：" class="headerlink" title="第1步："></a>第1步：</h3><p>创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span></span><br></pre></td></tr></table></figure></p>
-<p>如果一切顺利的话，可以在用户主目录里找到<code>.ssh</code>目录，里面有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，这两个就是SSH Key的秘钥对，<code>id_rsa</code>是私钥，不能泄露出去，<code>id_rsa.pub</code>是公钥，可以放心地告诉任何人。</p>
-<h3 id="第2步："><a href="#第2步：" class="headerlink" title="第2步："></a>第2步：</h3><p>登陆GitHub，打开”settings”，“SSH and GPG Keys”页面：</p>
-<p>然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴<code>id_rsa.pub</code>文件的内容： </p>
-<p><img src="https://ws1.sinaimg.cn/large/0061BkIsly1fsm4698qkwj30xe0px40b.jpg" alt=""></p>
-<p>点“Add Key”，你就应该看到已经添加的Key.</p>
-<h3 id="第3步-添加远程库"><a href="#第3步-添加远程库" class="headerlink" title="第3步.添加远程库"></a>第3步.添加远程库</h3><ul>
-<li>登录GitHub,在右上角找到+号,点击选择 New repository,创建一个新的仓库</li>
-</ul>
-<p><img src="https://ws1.sinaimg.cn/large/0061BkIsly1fsm48fv4pbj30xe0pxt9z.jpg" alt=""></p>
-<ul>
-<li><p>在Repository name填入<code>learngit</code>，其他保持默认设置，点击“Create repository”按钮，就成功地创建了一个新的Git仓库</p>
-</li>
-<li><p>在本地的<code>learngit</code>仓库下运行命令：</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:lxw-peter/learngit.git</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>下一步，就可以把本地库的所有内容推送到远程库上：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>从现在起，只要本地作了提交，就可以通过命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
-<p>把本地<code>master</code>分支的最新修改推送至GitHub，现在，你就拥有了真正的分布式版本库！</p>
-</li>
-</ul>
-<p><a href="添加后,远程库的名字就是`origin`，这是Git默认的叫法，也可以改成别的，但是`origin`这个名字一看就知道是远程库">^PS</a>: 第一次执行时会有SSH警告,可以忽略,但是如果担心的话,仔细对比下<a href="https://help.github.com/articles/what-are-github-s-ssh-key-fingerprints/" target="_blank" rel="noopener">GitHub的RSA Key的指纹信息</a>是否与SSH连接给出的一致。</p>
-<h3 id="第4步-从远程库克隆"><a href="#第4步-从远程库克隆" class="headerlink" title="第4步.从远程库克隆"></a>第4步.从远程库克隆</h3><p>首先，登陆GitHub，创建一个新的仓库，名字叫<code>gitskills</code>：</p>
-<p>然后勾选<code>Initialize this repository with a README</code>，这样GitHub会自动为我们创建一个<code>README.md</code>文件。创建完毕后，可以看到<code>README.md</code>文件：</p>
-<p><img src="https://ws1.sinaimg.cn/large/0061BkIsly1fsm4cedmx7j30xe0pxdh0.jpg" alt=""></p>
-<p>现在，远程库已经准备好了，下一步是用命令<code>git clone</code>克隆一个本地库：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git@github.com:lxw-peter/gitSkill.git</span><br><span class="line">$ <span class="built_in">cd</span> gitSkill //进入gitSkill目录</span><br><span class="line">$ ls //打开文件列表</span><br><span class="line">$ cat test.md //打开文件内容</span><br></pre></td></tr></table></figure>
-<h1 id="三-分支管理"><a href="#三-分支管理" class="headerlink" title="三.分支管理"></a>三.分支管理</h1><ol>
-<li><p>创建分支</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b dev</span><br><span class="line">Switched to a new branch <span class="string">'dev'</span></span><br></pre></td></tr></table></figure>
-<p><code>git checkout</code>命令加上<code>-b</code>参数表示创建并切换,相当于以下两条命令:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git branch dev</span><br><span class="line">$ git checkout dev</span><br><span class="line">Switched to branch <span class="string">'dev'</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看分支</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br><span class="line">* dev</span><br><span class="line">  master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>提交分支</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add ...</span><br><span class="line">$ git commit -m <span class="string">'这里是一条分支'</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>切换分支</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>合并分支</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge dev //用于合并指定分支到当前分支</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除分支</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d dev</span><br><span class="line">Deleted branch dev</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>确认分支</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch </span><br><span class="line">* master         //删除分支后只剩下master一条分支</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
+        
+          <a class="article-more-a" href="/2018/09/13/Git指令速查表/#more">more >></a>
+        
       
 
       
