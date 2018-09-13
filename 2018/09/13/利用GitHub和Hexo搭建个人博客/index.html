@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/0061BkIsly1fv81tvfspwj30w50rtn0g.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/0061BkIsly1fv83lu8uebj30kc0atgmd.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/0061BkIsly1fv8dsr7lp9j31hc0swte5.jpg">
-<meta property="og:updated_time" content="2018-09-13T17:03:54.687Z">
+<meta property="og:updated_time" content="2018-09-13T17:38:22.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用github 和Hexo搭建个人博客">
 <meta name="twitter:description" content="lxw-peter.github.io注 ：这个是我的个人博客，之前一直不大明白怎么制作一个属于自己的博客，服务器配置啊什么的从头开始制作觉得太麻烦，后面看了一下别人的教程就能很快搭建自己的静态博客，下面是我的搭建过程。 lxw-peter的个人博客是怎么制作出来的？材料准备： git(GitHub) node.js Hexo  准备下锅： 安装好git后需要简单配置一下可以参考我的git学习笔记">
@@ -238,8 +238,17 @@
 <li><p>安装<code>hexo-deployer-git</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>生成静态文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>一键部署</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清除缓存</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>监事文件变动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate --watch</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>完成后部署</p>
 <p>让Hexo在生成完毕后自动部署网站</p>
@@ -354,15 +363,6 @@
 
   
 <nav id="article-nav">
-  
-    <a href="/2018/09/14/利用GitHub和Hexo搭建个人博客-1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          利用GitHub和Hexo搭建个人博客
-        
-      </div>
-    </a>
   
   
     <a href="/2018/09/13/test/" id="article-nav-older" class="article-nav-link-wrap">
